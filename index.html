@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman Go - Database Schema</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- PAGE HEADER -->
+    <div class="header">
+      <h1>Aman Go</h1>
+      <p>Database Schema & Entity Attributes</p>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: ADMIN TABLES
+         ========================================== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-icon">👑</span>
+        <span>Admin & System Tables</span>
+      </div>
+      <div class="grid">
+
+        <!-- admins -->
+        <div class="table-card">
+          <div class="table-title">admins</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- name</li>
+            <li>- email</li>
+            <li>- password</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- roles -->
+        <div class="table-card">
+          <div class="table-title">roles</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- name</li>
+            <li>- slug</li>
+          </ul>
+        </div>
+
+        <!-- permissions -->
+        <div class="table-card">
+          <div class="table-title">permissions</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- name</li>
+            <li>- slug</li>
+          </ul>
+        </div>
+
+        <!-- admin_roles -->
+        <div class="table-card">
+          <div class="table-title">admin_roles</div>
+          <ul class="attributes-list">
+            <li>- admin_id</li>
+            <li>- role_id</li>
+          </ul>
+        </div>
+
+        <!-- role_permissions -->
+        <div class="table-card">
+          <div class="table-title">role_permissions</div>
+          <ul class="attributes-list">
+            <li>- role_id</li>
+            <li>- permission_id</li>
+          </ul>
+        </div>
+
+        <!-- users -->
+        <div class="table-card">
+          <div class="table-title">users</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- name</li>
+            <li>- phone</li>
+            <li>- email</li>
+            <li>- password</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- notifications -->
+        <div class="table-card">
+          <div class="table-title">notifications</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- user_id</li>
+            <li>- title</li>
+            <li>- body</li>
+            <li>- read_at</li>
+          </ul>
+        </div>
+
+        <!-- areas -->
+        <div class="table-card">
+          <div class="table-title">areas</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- name</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- schools -->
+        <div class="table-card">
+          <div class="table-title">schools</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- area_id</li>
+            <li>- name</li>
+            <li>- address</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SECTION 2: PARENT & STUDENT TABLES
+         ========================================== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-icon">👨‍👩‍👦</span>
+        <span>Parent & Student Tables</span>
+      </div>
+      <div class="grid">
+
+        <!-- parent_profiles -->
+        <div class="table-card">
+          <div class="table-title">parent_profiles</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- user_id</li>
+            <li>- address</li>
+          </ul>
+        </div>
+
+        <!-- children -->
+        <div class="table-card">
+          <div class="table-title">children</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- parent_user_id</li>
+            <li>- school_id</li>
+            <li>- name</li>
+            <li>- birth_date</li>
+            <li>- grade</li>
+            <li>- medical_notes</li>
+            <li>- notes</li>
+            <li>- is_active</li>
+          </ul>
+        </div>
+
+        <!-- child_addresses -->
+        <div class="table-card">
+          <div class="table-title">child_addresses</div>
+          <ul class="attributes-list">
+            <li>- child_id</li>
+            <li>- address_id</li>
+            <li>- address_type</li>
+            <li>- is_default</li>
+          </ul>
+        </div>
+
+        <!-- child_absences -->
+        <div class="table-card">
+          <div class="table-title">child_absences</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- child_id</li>
+            <li>- absence_date</li>
+            <li>- trip_direction</li>
+            <li>- reason</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- authorized_pickups -->
+        <div class="table-card">
+          <div class="table-title">authorized_pickups</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- child_id</li>
+            <li>- name</li>
+            <li>- relationship</li>
+            <li>- phone</li>
+            <li>- national_id</li>
+            <li>- photo_url</li>
+            <li>- is_active</li>
+          </ul>
+        </div>
+
+        <!-- subscriptions -->
+        <div class="table-card">
+          <div class="table-title">subscriptions</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- child_id</li>
+            <li>- route_id</li>
+            <li>- service_type</li>
+            <li>- start_date</li>
+            <li>- end_date</li>
+            <li>- monthly_price</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- payments -->
+        <div class="table-card">
+          <div class="table-title">payments</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- subscription_id</li>
+            <li>- amount</li>
+            <li>- payment_method</li>
+            <li>- transaction_reference</li>
+            <li>- receipt_url</li>
+            <li>- payment_date</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- trip_reviews -->
+        <div class="table-card">
+          <div class="table-title">trip_reviews</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- trip_id</li>
+            <li>- parent_id</li>
+            <li>- driver_id</li>
+            <li>- rating</li>
+            <li>- comment</li>
+            <li>- created_at</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SECTION 3: DRIVER & FLEET TABLES
+         ========================================== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-icon">🚌</span>
+        <span>Driver & Fleet Tables</span>
+      </div>
+      <div class="grid">
+
+        <!-- driver_profiles -->
+        <div class="table-card">
+          <div class="table-title">driver_profiles</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- user_id</li>
+            <li>- license_number</li>
+            <li>- approval_status</li>
+            <li>- rating</li>
+          </ul>
+        </div>
+
+        <!-- vehicles -->
+        <div class="table-card">
+          <div class="table-title">vehicles</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- plate_number</li>
+            <li>- vehicle_type</li>
+            <li>- capacity</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- driver_vehicles -->
+        <div class="table-card">
+          <div class="table-title">driver_vehicles</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- driver_id</li>
+            <li>- vehicle_id</li>
+            <li>- start_date</li>
+            <li>- end_date</li>
+            <li>- is_active</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- driver_documents -->
+        <div class="table-card">
+          <div class="table-title">driver_documents</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- driver_id</li>
+            <li>- document_type</li>
+            <li>- file_path</li>
+            <li>- expiry_date</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- vehicle_documents -->
+        <div class="table-card">
+          <div class="table-title">vehicle_documents</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- vehicle_id</li>
+            <li>- document_type</li>
+            <li>- file_path</li>
+            <li>- expiry_date</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SECTION 4: SUPERVISORS, ROUTES & TRIPS
+         ========================================== -->
+    <div class="section-block">
+      <div class="section-title">
+        <span class="section-icon">🗺️</span>
+        <span>Routes, Trips & Supervisors Tables</span>
+      </div>
+      <div class="grid">
+
+        <!-- supervisor_profiles -->
+        <div class="table-card">
+          <div class="table-title">supervisor_profiles</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- user_id</li>
+            <li>- national_id</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- routes -->
+        <div class="table-card">
+          <div class="table-title">routes</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- area_id</li>
+            <li>- name</li>
+            <li>- direction</li>
+            <li>- scheduled_time</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- addresses -->
+        <div class="table-card">
+          <div class="table-title">addresses</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- area_id</li>
+            <li>- label</li>
+            <li>- address_text</li>
+            <li>- latitude</li>
+            <li>- longitude</li>
+          </ul>
+        </div>
+
+        <!-- route_stops -->
+        <div class="table-card">
+          <div class="table-title">route_stops</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- route_id</li>
+            <li>- address_id</li>
+            <li>- stop_order</li>
+            <li>- estimated_time</li>
+          </ul>
+        </div>
+
+        <!-- route_schools -->
+        <div class="table-card">
+          <div class="table-title">route_schools</div>
+          <ul class="attributes-list">
+            <li>- route_id</li>
+            <li>- school_id</li>
+          </ul>
+        </div>
+
+        <!-- route_assignments -->
+        <div class="table-card">
+          <div class="table-title">route_assignments</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- driver_vehicle_id</li>
+            <li>- supervisor_id</li>
+            <li>- start_date</li>
+            <li>- end_date</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- assignment_routes -->
+        <div class="table-card">
+          <div class="table-title">assignment_routes</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- assignment_id</li>
+            <li>- route_id</li>
+            <li>- direction</li>
+          </ul>
+        </div>
+
+        <!-- trips -->
+        <div class="table-card">
+          <div class="table-title">trips</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- assignment_route_id</li>
+            <li>- trip_date</li>
+            <li>- direction</li>
+            <li>- scheduled_at</li>
+            <li>- started_at</li>
+            <li>- completed_at</li>
+            <li>- status</li>
+          </ul>
+        </div>
+
+        <!-- trip_children -->
+        <div class="table-card">
+          <div class="table-title">trip_children</div>
+          <ul class="attributes-list">
+            <li>- trip_id</li>
+            <li>- child_id</li>
+            <li>- attendance_status</li>
+            <li>- verification_code</li>
+            <li>- pickup_time</li>
+            <li>- dropoff_time</li>
+            <li>- notes</li>
+          </ul>
+        </div>
+
+        <!-- trip_incidents -->
+        <div class="table-card">
+          <div class="table-title">trip_incidents</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- trip_id</li>
+            <li>- child_id</li>
+            <li>- incident_type</li>
+            <li>- description</li>
+            <li>- reported_at</li>
+          </ul>
+        </div>
+
+        <!-- trip_locations -->
+        <div class="table-card">
+          <div class="table-title">trip_locations</div>
+          <ul class="attributes-list">
+            <li>- id</li>
+            <li>- trip_id</li>
+            <li>- latitude</li>
+            <li>- longitude</li>
+            <li>- speed</li>
+            <li>- recorded_at</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
